@@ -1,10 +1,12 @@
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 import { contactsContext } from '../../ContactsContext';
 
 function ContactCard({ name, lastName, phone, id }) {
   const { deleteContact } = useContext(contactsContext);
+  const navigate = useNavigate();
   return (
     <Card
       style={{
@@ -27,7 +29,11 @@ function ContactCard({ name, lastName, phone, id }) {
           >
             Delete
           </Button>
-          <Button className='mx-2' variant='success'>
+          <Button
+            onClick={() => navigate(`/edit/${id}`)}
+            className='mx-2'
+            variant='success'
+          >
             Edit
           </Button>
         </Card.Body>

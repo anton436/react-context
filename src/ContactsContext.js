@@ -7,6 +7,7 @@ const ContactsContextProvider = ({ children }) => {
   const API = 'http://localhost:8000/contacts';
 
   const [contacts, setContacts] = useState([]);
+  const [oneContactInfo, setOneContactInfo] = useState(null);
 
   //! add
   async function addContact(newContact) {
@@ -27,9 +28,28 @@ const ContactsContextProvider = ({ children }) => {
     getContacts();
   }
 
+  //! get one contact info
+  async function getOneContactInfo(id) {
+    let result = await axios.get(`${API}/${id}`);
+    setOneContactInfo(result.data);
+  }
+
+  // ! update
+  async function updateContactInfo(id, editedContact) {
+    await axios.patch(`${API}/${id}`, editedContact);
+    getContacts();
+  }
   return (
     <contactsContext.Provider
-      value={{ addContact, deleteContact, getContacts, contacts }}
+      value={{
+        addContact,
+        oneContactInfo,
+        getOneContactInfo,
+        deleteContact,
+        getContacts,
+        contacts,
+        updateContactInfo,
+      }}
     >
       {children}
     </contactsContext.Provider>

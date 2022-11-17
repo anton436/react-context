@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AddContact from './components/AddContact/AddContact';
 import ContactList from './components/ContactList/ContactList';
 import Counter from './components/Counter/Counter';
+import EditContact from './components/EditContact/EditContact';
 import Header from './components/Header/Header';
 import ContactsContextProvider from './ContactsContext';
 import CounterContextProvider from './CounterContext';
@@ -17,6 +18,7 @@ function App() {
               <Route path='/counter' element={<Counter />} />
               <Route path='/' element={<ContactList />} />
               <Route path='/add' element={<AddContact />} />
+              <Route path='/edit/:id' element={<EditContact />} />
             </Routes>
           </CounterContextProvider>
         </ContactsContextProvider>
