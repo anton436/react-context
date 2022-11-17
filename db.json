@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "name": "SALAMAT ",
+      "lastName": "ASIA MALL",
+      "phone": "999",
+      "id": 1
+    },
+    {
+      "name": "ABBAS",
+      "lastName": "AAA",
+      "phone": "8888",
+      "id": 2
+    }
+  ]
+}
